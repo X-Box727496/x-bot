@@ -1,4 +1,4 @@
-local version = "1.27"
+local version = "1.00"
 
 if myHero.charName ~= "Lucian" then return end
 require 'VPrediction'
