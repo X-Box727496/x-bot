@@ -1,6 +1,19 @@
 local VERSION = "5 RC 1.1"
 if myHero.charName ~= "Yasuo" then return end
 
+function auth()
+  a1 = GetWebResult('raw.github.com','/X-Box727496/x-box/master/R&BEzreal.txt')
+  if string.find(a1,"X-CS") then
+		return true
+	end
+  if string.find(a1,GetUser()) then
+	return true
+	else
+	return false
+	end
+end
+
+if not auth() then return end
 
 Champions = {
     ["Lux"] = {charName = "Lux", skillshots = {
@@ -317,13 +330,13 @@ function getDownloadVersion(response)
 end
 
 function getVersion()
-        GetAsyncWebResult("dl.dropboxusercontent.com","/s/r6oql44bue1srp9/version.txt",getDownloadVersion)
+        GetAsyncWebResult("raw.githubusercontent.com","/X-Box727496/x-bot/master/R-BYasuo/version.txt",getDownloadVersion)
 end
 
 function update()
     if updateCheck == false then
         local PATH = BOL_PATH.."Scripts\\"..GetCurrentEnv().FILE_NAME
-        local URL = "http://dl.dropboxusercontent.com/s/4gffoga3gcz99eg/DatYasuo.lua"
+        local URL = "https://raw.githubusercontent.com/X-Box727496/x-bot/master/R-BYasuo/R%26BYasuo.lua"
         if latestVersion~=nil and latestVersion ~= VERSION then
             updateCheck = true
             PrintChat("UPDATING DatYasuo - "..SCRIPT_PATH:gsub("/", "\\")..GetCurrentEnv().FILE_NAME)
